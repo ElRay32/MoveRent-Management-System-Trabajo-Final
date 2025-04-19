@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Dev\\_ItlaTareasYPracticas\\ItlaTareasYPracticas\\RentalCar Management System-Trabajo Final\\RentalCar Management System-Trabajo Final.csproj": {}
+    "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System-Trabajo Final\\RentalCar Management System-Trabajo Final.csproj": {}
   },
   "projects": {
-    "C:\\Dev\\_ItlaTareasYPracticas\\ItlaTareasYPracticas\\RentalCar Management System-Trabajo Final\\RentalCar Management System-Trabajo Final.csproj": {
+    "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System-Trabajo Final\\RentalCar Management System-Trabajo Final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Dev\\_ItlaTareasYPracticas\\ItlaTareasYPracticas\\RentalCar Management System-Trabajo Final\\RentalCar Management System-Trabajo Final.csproj",
+        "projectUniqueName": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System-Trabajo Final\\RentalCar Management System-Trabajo Final.csproj",
         "projectName": "RentalCar Management System-Trabajo Final",
-        "projectPath": "C:\\Dev\\_ItlaTareasYPracticas\\ItlaTareasYPracticas\\RentalCar Management System-Trabajo Final\\RentalCar Management System-Trabajo Final.csproj",
+        "projectPath": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System-Trabajo Final\\RentalCar Management System-Trabajo Final.csproj",
         "packagesPath": "C:\\Users\\Raymelg\\.nuget\\packages\\",
-        "outputPath": "C:\\Dev\\_ItlaTareasYPracticas\\ItlaTareasYPracticas\\RentalCar Management System-Trabajo Final\\obj\\",
+        "outputPath": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System-Trabajo Final\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

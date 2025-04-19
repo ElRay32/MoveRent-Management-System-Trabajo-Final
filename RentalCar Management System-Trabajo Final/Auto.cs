@@ -1,5 +1,5 @@
 ﻿namespace RentalCar.Models
-{  
+{
     // Clase que representa un automóvil disponible para alquilar
     internal class Auto
     {
@@ -35,7 +35,46 @@
             Cedula = cedula;
         }
 
+        // Método abstracto que será implementado por las clases hijas
         public abstract void MostrarInfo();
+    }
+
+    // Clase Cliente que hereda de Persona
+    public class Cliente : Persona
+    {
+        public string Telefono { get; set; }
+
+        public Cliente(string nombre, string cedula, string telefono)
+            : base(nombre, cedula)
+        {
+            Telefono = telefono;
+        }
+
+        // Implementación del método MostrarInfo
+        public override void MostrarInfo()
+        {
+            Console.WriteLine($"Cliente: {Nombre} - {Cedula} - {Telefono}");
+        }
+
+    }
+
+    // Interface que define métodos relacionados a reservas
+    public interface IReservable
+    {
+        void Reservar();
+        void Cancelar();
+    }
+
+    // Clase Reserva que implementa la interface IReservable
+    public class Reserva : IReservable
+    {
+        public int IdReserva { get; set; }
+        public int IdAuto { get; set; }
+        public int IdCliente { get; set; }
+        public DateTime FechaReserva { get; set; }
+
+        public void Reservar() => Console.WriteLine("Reserva realizada.");
+        public void Cancelar() => Console.WriteLine("Reserva cancelada.");
     }
 
 }
