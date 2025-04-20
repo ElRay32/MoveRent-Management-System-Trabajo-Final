@@ -10,7 +10,7 @@ namespace RentalCar.BLL
         private ConexionDB conexion = new ConexionDB();
 
         // Método para agregar un nuevo auto a la base de datos
-        public void AgregarAuto(Auto auto)
+        public void AgregarAuto(ModelsAutoPersonas auto)
         {
             using (SqlConnection conn = conexion.ObtenerConexion())
             {

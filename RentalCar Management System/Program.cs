@@ -2,14 +2,14 @@
 using RentalCar.Models;
 
 
-namespace RentalCar.interf
+namespace RentalCar
 {
     class program
     {
         static void Main(string[] args)
         {
             AutoService autoService = new AutoService();
-            Auto auto = new Auto(0, "Toyota", "Corolla", "A123BCD", true);
+            ModelsAutoPersonas auto = new ModelsAutoPersonas(0, "Toyota", "Corolla", "A123BCD", true);
             autoService.AgregarAuto(auto);
             Console.WriteLine("Auto agregado exitosamente.");
         }
