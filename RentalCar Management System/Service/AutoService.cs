@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
-using RentalCar.Models;
 using RentalCar.DAL;
+using RentalCar.Models;
 
 namespace RentalCar.BLL
 {
