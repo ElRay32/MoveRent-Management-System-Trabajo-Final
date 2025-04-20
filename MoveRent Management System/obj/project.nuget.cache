@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jNEKWoB24cs=",
+  "dgSpecHash": "ZtSeYtqHL7w=",
   "success": true,
-  "projectFilePath": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\RentalCar.csproj",
+  "projectFilePath": "C:\\Dev\\MoveRent-Management-System\\MoveRent Management System\\MoveRent.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Raymelg\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Raymelg\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
