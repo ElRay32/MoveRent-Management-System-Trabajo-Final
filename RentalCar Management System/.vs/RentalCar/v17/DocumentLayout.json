@@ -1,0 +1,73 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1742ADE5-CFD4-482E-A6FC-84F9A2195E6F}|RentalCar.csproj|c:\\dev\\rentalcar-management-system\\rentalcar management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1742ADE5-CFD4-482E-A6FC-84F9A2195E6F}|RentalCar.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1742ADE5-CFD4-482E-A6FC-84F9A2195E6F}|RentalCar.csproj|c:\\dev\\rentalcar-management-system\\rentalcar management system\\bdconexion\\conexiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1742ADE5-CFD4-482E-A6FC-84F9A2195E6F}|RentalCar.csproj|solutionrelative:bdconexion\\conexiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1742ADE5-CFD4-482E-A6FC-84F9A2195E6F}|RentalCar.csproj|c:\\dev\\rentalcar-management-system\\rentalcar management system\\service\\autoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1742ADE5-CFD4-482E-A6FC-84F9A2195E6F}|RentalCar.csproj|solutionrelative:service\\autoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ConexionDB.cs",
+              "DocumentMoniker": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\BDConexion\\ConexionDB.cs",
+              "RelativeDocumentMoniker": "BDConexion\\ConexionDB.cs",
+              "ToolTip": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\BDConexion\\ConexionDB.cs",
+              "RelativeToolTip": "BDConexion\\ConexionDB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-20T05:07:07.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AutoService.cs",
+              "DocumentMoniker": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\Service\\AutoService.cs",
+              "RelativeDocumentMoniker": "Service\\AutoService.cs",
+              "ToolTip": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\Service\\AutoService.cs",
+              "RelativeToolTip": "Service\\AutoService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-20T05:05:41.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-19T23:33:08.063Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

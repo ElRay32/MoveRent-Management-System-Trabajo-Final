@@ -1,0 +1,5 @@
+C:\Dev\RentalCar-Management-System\RentalCar Management System\obj\Debug\net8.0\RentalCar Management System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\RentalCar-Management-System\RentalCar Management System\obj\Debug\net8.0\RentalCar Management System.AssemblyInfoInputs.cache
+C:\Dev\RentalCar-Management-System\RentalCar Management System\obj\Debug\net8.0\RentalCar Management System.AssemblyInfo.cs
+C:\Dev\RentalCar-Management-System\RentalCar Management System\obj\Debug\net8.0\RentalCar Management System.csproj.CoreCompileInputs.cache
+C:\Dev\RentalCar-Management-System\RentalCar Management System\obj\Debug\net8.0\RentalCar Management System.sourcelink.json
