@@ -42,5 +42,33 @@ namespace RentalCar.Service
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadKey();
         }
-    }
+
+        // Método que muestra todas las reservas realizadas, incluyendo datos del cliente y del auto
+        public void ListarReservas()
+        {
+            // Crear y abrir una conexión a la base de datos
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                // Consulta SQL que une las tablas Reserva, Cliente y Auto para mostrar información completa
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(@"
+                    SELECT r.Id, c.Nombre, a.Marca, a.Modelo, r.FechaReserva
+                    FROM Reserva r
+                    INNER JOIN Cliente c ON r.IdCliente = c.Id
+                    INNER JOIN Auto a ON r.IdAuto = a.Id", conn);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                Console.WriteLine("\n--- Lista de Reservas ---");
+                while (reader.Read())
+                {
+                    Console.WriteLine($"ID: {reader["Id"]}, Cliente: {reader["Nombre"]}, Auto: {reader["Marca"]} {reader["Modelo"]}, Fecha: {((DateTime)reader["FechaReserva"]).ToShortDateString()}");
+                }
+            }
+
+            // Pausar la consola hasta que el usuario presione una tecla
+            Console.WriteLine("\nPresione una tecla para continuar...");
+            Console.ReadKey();
+        }
+
+    } 
 }
