@@ -4,7 +4,7 @@ namespace RentalCar.DAL
 {
     public class ConexionDB
     {
-        private readonly string cadenaConexion = "Data Source=.;Initial Catalog=RentalCarDB;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
+        string cadenaConexion = "Data Source=localhost;Initial Catalog=RentalCarDB;Integrated Security=True;TrustServerCertificate=True;";
 
         public SqlConnection ObtenerConexion()
         {

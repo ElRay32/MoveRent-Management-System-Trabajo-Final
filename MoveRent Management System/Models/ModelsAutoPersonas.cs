@@ -1,4 +1,6 @@
-﻿namespace RentalCar.Models
+﻿using Microsoft.Data.SqlClient;
+
+namespace RentalCar.Models
 {
     // Clase que representa un automóvil disponible para alquilar
     public class ModelsAutoPersonas

@@ -23,8 +23,10 @@ CREATE TABLE Reserva (
     IdCliente INT,
     IdAuto INT,
     FechaReserva DATETIME,
+	MontoTotal DECIMAL(10, 2),
     FOREIGN KEY (IdCliente) REFERENCES Cliente(Id),
     FOREIGN KEY (IdAuto) REFERENCES Auto(Id)
+
 );
 
 CREATE TABLE Pago (
