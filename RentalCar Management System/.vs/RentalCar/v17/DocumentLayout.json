@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1742ADE5-CFD4-482E-A6FC-84F9A2195E6F}|RentalCar.csproj|c:\\dev\\rentalcar-management-system\\rentalcar management system\\service\\autoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1742ADE5-CFD4-482E-A6FC-84F9A2195E6F}|RentalCar.csproj|solutionrelative:service\\autoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1742ADE5-CFD4-482E-A6FC-84F9A2195E6F}|RentalCar.csproj|c:\\dev\\rentalcar-management-system\\rentalcar management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1742ADE5-CFD4-482E-A6FC-84F9A2195E6F}|RentalCar.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -27,27 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AutoService.cs",
-              "DocumentMoniker": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\Service\\AutoService.cs",
-              "RelativeDocumentMoniker": "Service\\AutoService.cs",
-              "ToolTip": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\Service\\AutoService.cs",
-              "RelativeToolTip": "Service\\AutoService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T06:40:37.839Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Dev\\RentalCar-Management-System\\RentalCar Management System\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-20T05:59:06.408Z",
+              "WhenOpened": "2025-04-20T07:04:53.8Z",
               "EditorCaption": ""
             }
           ]
