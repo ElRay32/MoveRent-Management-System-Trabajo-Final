@@ -1,14 +1,20 @@
 ﻿using Microsoft.Data.SqlClient;
 
-namespace RentalCar.DAL
+namespace MoveRent.BD
 {
     public class ConexionDB
     {
-        string cadenaConexion = "Data Source=localhost;Initial Catalog=RentalCarDB;Integrated Security=True;TrustServerCertificate=True;";
+        string cadenaConexion = "Data Source=localhost;Initial Catalog=MoveRentDB;Integrated Security=True;TrustServerCertificate=True;";
 
         public SqlConnection ObtenerConexion()
         {
             return new SqlConnection(cadenaConexion);
+        }
+
+        public static SqlConnection GetConnection()
+        {
+            string connectionString = "tu_cadena_de_conexion";
+            return new SqlConnection(connectionString);
         }
     }
 }
