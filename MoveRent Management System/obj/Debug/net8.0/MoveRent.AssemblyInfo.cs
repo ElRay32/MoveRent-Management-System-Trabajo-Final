@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MoveRent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e58a39c28f6556f49d582f79219c569c9854b236")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0db47609cff6a7f6d1713340f6f8bb391bea1b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("MoveRent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MoveRent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

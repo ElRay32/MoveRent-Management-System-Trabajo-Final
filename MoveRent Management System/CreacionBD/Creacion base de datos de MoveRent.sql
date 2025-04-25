@@ -44,6 +44,7 @@ CREATE TABLE Pago (
     Monto DECIMAL(10, 2),
     FechaPago DATETIME,
     FechaCreacion datetime,
-    FechaModificacion datetime
+    FechaModificacion datetime,
+    Pagado BIT NOT NULL DEFAULT 0
     FOREIGN KEY (IdReserva) REFERENCES Reserva(Id) ON DELETE CASCADE
 );

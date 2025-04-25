@@ -1,5 +1,6 @@
 ﻿using MoveRent.Services;// Importa los espacios de nombres que contienen las clases de servicios para autos, clientes y reservas.
 
+
 // Clase principal del programa
 class Program
 {
@@ -10,6 +11,8 @@ class Program
         var autoService = new AutoService();
         var clienteService = new ClienteService();
         var reservaService = new ReservaService();
+        var pagoService = new PagoService();
+
 
         // Bucle infinito del menú principal hasta que el usuario decida salir y Switch para redirigir al módulo correspondiente con los menus de auto, clientes, reservas.
         while (true)
@@ -32,7 +35,7 @@ class Program
                     MenuClientes(clienteService); 
                     break;
                 case "3":
-                    MenuReservas(reservaService); 
+                    MenuReservas(reservaService, pagoService);
                     break;
                 case "0":
                     return; 
@@ -101,7 +104,7 @@ class Program
     }
 
     // Submenú para gestionar Reservas
-    static void MenuReservas(ReservaService servicio)
+    static void MenuReservas(ReservaService servicio, PagoService pagoService)
     {
         while (true)
         {
@@ -111,6 +114,7 @@ class Program
             Console.WriteLine("2. Hacer Reserva");
             Console.WriteLine("3. Actualizar Reserva");
             Console.WriteLine("4. Eliminar Reserva");
+            Console.WriteLine("5. Pagar Reserva");
             Console.WriteLine("9. Volver atrás");
             Console.Write("Opción: ");
             string op = Console.ReadLine();
@@ -121,6 +125,7 @@ class Program
                 case "2": servicio.HacerReserva(); break;
                 case "3": servicio.ActualizarReserva(); break;
                 case "4": servicio.EliminarReserva(); break;
+                case "5": pagoService.PagarReserva(); break;
                 case "9": return;
                 default: Console.WriteLine("Opción inválida."); break;
             }

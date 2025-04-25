@@ -7,61 +7,73 @@ namespace MoveRent.Services
         private string connectionString = "Data Source=localhost;Initial Catalog=MoveRentDB;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;";
 
         // Método para registrar un pago de una reserva específica
-        public void RegistrarPago()
+        public void PagarReserva()
         {
-            // Solicita al usuario el ID de la reserva y el monto que desea pagar
-            Console.Write("ID Reserva: ");
-            int idReserva = int.Parse(Console.ReadLine());
-            Console.Write("Monto a pagar (RD$): ");
-            decimal montoPagado = decimal.Parse(Console.ReadLine());
+            Console.Write("ID de la reserva a pagar: ");
+            int idReserva = Convert.ToInt32(Console.ReadLine());
 
-            decimal montoTotal = 0; // Variable donde se guardará el monto total esperado de la reserva
-
-            // Se establece la conexión con la base de datos
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
-                // Se consulta el monto total asociado a la reserva ingresada
-                SqlCommand getMonto = new SqlCommand("SELECT MontoTotal FROM Reserva WHERE Id = @idReserva", conn);
-                getMonto.Parameters.AddWithValue("@idReserva", idReserva);
-                var result = getMonto.ExecuteScalar(); // Obtiene un solo valor
+                // Verificar si existe y si ya está pagada
+                SqlCommand verificar = new SqlCommand("SELECT MontoTotal, Pagado FROM Reserva WHERE Id = @idReserva", conn);
+                verificar.Parameters.AddWithValue("@idReserva", idReserva);
+                SqlDataReader reader = verificar.ExecuteReader();
 
-                // Verificamos que se obtuvo un monto y que puede convertirse a decimal
-                if (result != null && decimal.TryParse(result.ToString(), out montoTotal))
+                if (!reader.Read())
                 {
-                    // Si la reserva existe, registramos el pago en la tabla Pago
-                    SqlCommand cmd = new SqlCommand("INSERT INTO Pago (IdReserva, Monto, FechaPago) VALUES (@idReserva, @monto, GETDATE())", conn);
-                    cmd.Parameters.AddWithValue("@idReserva", idReserva);
-                    cmd.Parameters.AddWithValue("@monto", montoPagado);
-                    cmd.ExecuteNonQuery();
+                    Console.WriteLine("La reserva no existe.");
+                    Console.ReadKey(); return;
+                }
 
-                    // Evaluamos el resultado del pago comparando con el monto total
-                    if (montoPagado == montoTotal)
-                    {
-                        Console.WriteLine("Pago exitoso. Gracias por su pago exacto.");
-                    }
-                    else if (montoPagado > montoTotal)
-                    {
-                        // Si pagó de más, se calcula y muestra el sobrante
-                        decimal sobrante = montoPagado - montoTotal;
-                        Console.WriteLine($"Pago exitoso. Su cambio es: RD${sobrante}");
-                    }
-                    else
-                    {
-                        // Si pagó de menos, se muestra cuánto falta
-                        decimal falta = montoTotal - montoPagado;
-                        Console.WriteLine($"Pago insuficiente. Aún debe: RD${falta}");
-                    }
+                decimal montoTotal = Convert.ToDecimal(reader["MontoTotal"]);
+                bool yaPagado = Convert.ToBoolean(reader["Pagado"]);
+                reader.Close();
+
+                if (yaPagado)
+                {
+                    Console.WriteLine("Esta reserva ya fue pagada.");
+                    Console.ReadKey(); return;
+                }
+
+                // Ingresar monto a pagar
+                Console.Write("Ingrese el monto a pagar (RD$): ");
+                decimal montoPagado = Convert.ToDecimal(Console.ReadLine());
+
+                // Registrar el pago
+                SqlCommand insertarPago = new SqlCommand("INSERT INTO Pago (IdReserva, Monto, FechaPago) VALUES (@idReserva, @monto, GETDATE())", conn);
+                insertarPago.Parameters.AddWithValue("@idReserva", idReserva);
+                insertarPago.Parameters.AddWithValue("@monto", montoPagado);
+                insertarPago.ExecuteNonQuery();
+
+                // Si el monto cubre el total, marcar como pagado
+                if (montoPagado >= montoTotal)
+                {
+                    SqlCommand marcarPagado = new SqlCommand("UPDATE Reserva SET Pagado = 1 WHERE Id = @idReserva", conn);
+                    marcarPagado.Parameters.AddWithValue("@idReserva", idReserva);
+                    marcarPagado.ExecuteNonQuery();
+                }
+
+                // Mensaje al usuario
+                if (montoPagado == montoTotal)
+                {
+                    Console.WriteLine("Pago exacto realizado exitosamente.");
+                }
+                else if (montoPagado > montoTotal)
+                {
+                    decimal cambio = montoPagado - montoTotal;
+                    Console.WriteLine($"Pago exitoso. Su cambio es: RD${cambio}");
                 }
                 else
                 {
-                    Console.WriteLine("Error: Reserva no encontrada.");
+                    decimal restante = montoTotal - montoPagado;
+                    Console.WriteLine($"Pago incompleto. Aún debe: RD${restante}");
                 }
-            }
 
-            Console.WriteLine("Presione una tecla para continuar...");
-            Console.ReadKey();
+                Console.WriteLine("Presione una tecla para continuar...");
+                Console.ReadKey();
+            }
         }
     }
 }
