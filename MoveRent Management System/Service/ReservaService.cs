@@ -16,40 +16,80 @@ namespace MoveRent.Services
             Console.Write("ID Auto: ");
             int idAuto = int.Parse(Console.ReadLine());
 
-            // Genera un monto aleatorio entre 3000 y 9000
-            Random rnd = new Random();
-            decimal montoTotal = rnd.Next(3000, 9001);
-
-            // Establece la conexión con la base de datos
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
-                // Verifica si el auto está disponible
-                SqlCommand validacion = new SqlCommand("SELECT Disponible FROM Auto WHERE Id = @idAuto", conn);
-                validacion.Parameters.AddWithValue("@idAuto", idAuto);
-                var disponible = validacion.ExecuteScalar();
-
-                // Si está disponible, registra la reserva y marca el auto como no disponible
-                if (disponible != null && (bool)disponible)
+                // Validar que el cliente existe
+                SqlCommand validarCliente = new SqlCommand("SELECT COUNT(*) FROM Cliente WHERE Id = @idCliente", conn);
+                validarCliente.Parameters.AddWithValue("@idCliente", idCliente);
+                int existeCliente = (int)validarCliente.ExecuteScalar();
+                if (existeCliente == 0)
                 {
-                    SqlCommand cmd = new SqlCommand(@"
-                        INSERT INTO Reserva (IdCliente, IdAuto, FechaReserva, MontoTotal, FechaModificacion)
-                        VALUES (@idCliente, @idAuto, GETDATE(), @monto, GETDATE());
-                        UPDATE Auto SET Disponible = 0 WHERE Id = @idAuto", conn);
+                    Console.WriteLine("El cliente no existe.");
+                    Console.WriteLine("Presione una tecla para continuar...");
+                    Console.ReadKey();
+                    return;
+                }
 
-                    cmd.Parameters.AddWithValue("@idCliente", idCliente);
-                    cmd.Parameters.AddWithValue("@idAuto", idAuto);
-                    cmd.Parameters.AddWithValue("@monto", montoTotal);
-                    cmd.ExecuteNonQuery();
+                // Validar que el auto existe y está disponible
+                SqlCommand validarAuto = new SqlCommand("SELECT Disponible FROM Auto WHERE Id = @idAuto", conn);
+                validarAuto.Parameters.AddWithValue("@idAuto", idAuto);
+                var disponible = validarAuto.ExecuteScalar();
 
-                    Console.WriteLine($"✅ Reserva realizada correctamente. Monto total: RD${montoTotal}");
+                if (disponible == null)
+                {
+                    Console.WriteLine("El auto no existe.");
+                    Console.WriteLine("Presione una tecla para continuar...");
+                    Console.ReadKey();
+                    return;
+                }
+
+                if (!(bool)disponible)
+                {
+                    Console.WriteLine("El auto no está disponible.");
+                    Console.WriteLine("Presione una tecla para continuar...");
+                    Console.ReadKey();
+                    return;
+                }
+
+                // Preguntar por la fecha de reserva
+                Console.Write("¿Deseas ingresar una fecha personalizada para la reserva? (s/n): ");
+                string respuesta = Console.ReadLine().ToLower();
+                DateTime fechaReserva;
+
+                if (respuesta == "s")
+                {
+                    Console.Write("Ingrese la fecha (YYYY-MM-DD): ");
+                    if (!DateTime.TryParse(Console.ReadLine(), out fechaReserva))
+                    {
+                        Console.WriteLine(" Fecha inválida. Se usará la fecha actual.");
+                        fechaReserva = DateTime.Now;
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("❌ Error: Auto no disponible o no encontrado.");
+                    fechaReserva = DateTime.Now;
                 }
-            } 
+
+                // Generar un monto aleatorio
+                Random rnd = new Random();
+                decimal montoTotal = rnd.Next(3000, 9001);
+
+                // Registrar la reserva
+                SqlCommand cmd = new SqlCommand(@"
+            INSERT INTO Reserva (IdCliente, IdAuto, FechaReserva, MontoTotal, FechaModificacion)
+            VALUES (@idCliente, @idAuto, @fechaReserva, @montoTotal, GETDATE());
+            UPDATE Auto SET Disponible = 0 WHERE Id = @idAuto", conn);
+
+                cmd.Parameters.AddWithValue("@idCliente", idCliente);
+                cmd.Parameters.AddWithValue("@idAuto", idAuto);
+                cmd.Parameters.AddWithValue("@fechaReserva", fechaReserva);
+                cmd.Parameters.AddWithValue("@montoTotal", montoTotal);
+                cmd.ExecuteNonQuery();
+
+                Console.WriteLine($"✅ Reserva realizada correctamente. Monto total: RD${montoTotal}");
+            }
 
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadKey();
@@ -95,15 +135,63 @@ namespace MoveRent.Services
             Console.Write("Nuevo ID Auto: ");
             int idAuto = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Nueva fecha (YYYY-MM-DD): ");
-            DateTime fecha = DateTime.Parse(Console.ReadLine());
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
-                // Actualiza la reserva incluyendo la fecha de modificación
-                var cmd = new SqlCommand("UPDATE Reserva SET IdCliente=@idCliente, IdAuto=@idAuto, FechaReserva=@fecha, FechaModificacion=GETDATE() WHERE Id=@id", conn);
+                // Validar que el cliente existe
+                SqlCommand validarCliente = new SqlCommand("SELECT COUNT(*) FROM Cliente WHERE Id = @idCliente", conn);
+                validarCliente.Parameters.AddWithValue("@idCliente", idCliente);
+                int existeCliente = (int)validarCliente.ExecuteScalar();
+                if (existeCliente == 0)
+                {
+                    Console.WriteLine("El cliente no existe.");
+                    Console.WriteLine("Presione una tecla para continuar...");
+                    Console.ReadKey();
+                    return;
+                }
+
+                // Validar que el auto existe
+                SqlCommand validarAuto = new SqlCommand("SELECT COUNT(*) FROM Auto WHERE Id = @idAuto", conn);
+                validarAuto.Parameters.AddWithValue("@idAuto", idAuto);
+                int existeAuto = (int)validarAuto.ExecuteScalar();
+                if (existeAuto == 0)
+                {
+                    Console.WriteLine("El auto no existe.");
+                    Console.WriteLine("Presione una tecla para continuar...");
+                    Console.ReadKey();
+                    return;
+                }
+
+                // Preguntar si desea ingresar nueva fecha
+                Console.Write("¿Deseas ingresar una nueva fecha de reserva? (s/n): ");
+                string respuesta = Console.ReadLine().ToLower();
+
+                DateTime fecha;
+
+                if (respuesta == "s")
+                {
+                    Console.Write("Ingrese la nueva fecha (YYYY-MM-DD): ");
+                    if (!DateTime.TryParse(Console.ReadLine(), out fecha))
+                    {
+                        Console.WriteLine("Fecha inválida. Se usará la fecha actual.");
+                        fecha = DateTime.Now;
+                    }
+                }
+                else
+                {
+                    fecha = DateTime.Now;
+                }
+
+                // Ejecutar actualización
+                var cmd = new SqlCommand(@"
+            UPDATE Reserva 
+            SET IdCliente = @idCliente, 
+                IdAuto = @idAuto, 
+                FechaReserva = @fecha, 
+                FechaModificacion = GETDATE() 
+            WHERE Id = @id", conn);
+
                 cmd.Parameters.AddWithValue("@idCliente", idCliente);
                 cmd.Parameters.AddWithValue("@idAuto", idAuto);
                 cmd.Parameters.AddWithValue("@fecha", fecha);
@@ -116,6 +204,9 @@ namespace MoveRent.Services
                 else
                     Console.WriteLine("No se encontró la reserva.");
             }
+
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadKey();
         }
 
         // Método para eliminar una reserva existente

@@ -5,14 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{682BE05E-98AD-557D-B4E5-DE80CE3CE59F}|MoveRent.csproj|c:\\dev\\moverent-management-system\\moverent management system\\service\\reservaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{682BE05E-98AD-557D-B4E5-DE80CE3CE59F}|MoveRent.csproj|solutionrelative:service\\reservaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{682BE05E-98AD-557D-B4E5-DE80CE3CE59F}|MoveRent.csproj|c:\\dev\\moverent-management-system\\moverent management system\\service\\autoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{682BE05E-98AD-557D-B4E5-DE80CE3CE59F}|MoveRent.csproj|solutionrelative:service\\autoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{682BE05E-98AD-557D-B4E5-DE80CE3CE59F}|MoveRent.csproj|c:\\dev\\moverent-management-system\\moverent management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{682BE05E-98AD-557D-B4E5-DE80CE3CE59F}|MoveRent.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,35 +28,9 @@
               "RelativeDocumentMoniker": "Service\\ReservaService.cs",
               "ToolTip": "C:\\Dev\\MoveRent-Management-System\\MoveRent Management System\\Service\\ReservaService.cs",
               "RelativeToolTip": "Service\\ReservaService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwF0AAACTAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T23:04:16.2Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AutoService.cs",
-              "DocumentMoniker": "C:\\Dev\\MoveRent-Management-System\\MoveRent Management System\\Service\\AutoService.cs",
-              "RelativeDocumentMoniker": "Service\\AutoService.cs",
-              "ToolTip": "C:\\Dev\\MoveRent-Management-System\\MoveRent Management System\\Service\\AutoService.cs",
-              "RelativeToolTip": "Service\\AutoService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T22:47:18.385Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Dev\\MoveRent-Management-System\\MoveRent Management System\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Dev\\MoveRent-Management-System\\MoveRent Management System\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T12:47:35.955Z",
+              "WhenOpened": "2025-04-25T00:50:20.382Z",
               "EditorCaption": ""
             }
           ]
